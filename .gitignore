@@ -1,0 +1,17 @@
+.anchor
+target/
+
+test-ledger
+**/*.rs.bk
+
+node_modules/
+app/node_modules/
+app/build/
+
+app/.env.local
+.env
+
+
+.DS_Store
+
+.yarn
