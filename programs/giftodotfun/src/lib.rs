@@ -1,13 +1,7 @@
-pub mod constants;
-pub mod error;
 pub mod instructions;
-pub mod state;
-
+use instructions::*;
 use anchor_lang::prelude::*;
-
-pub use constants::*;
 pub use instructions::*;
-pub use state::*;
 
 declare_id!("ALbkwBmpwk57s3t2S3DPC6H8WM1aQiKDUdH1DzVsR66S");
 
@@ -15,7 +9,10 @@ declare_id!("ALbkwBmpwk57s3t2S3DPC6H8WM1aQiKDUdH1DzVsR66S");
 pub mod giftodotfun {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        initialize::handler(ctx)
+    pub fn CreateGiftLink(ctx: Context<EnterEscrow>, amount: u64) -> Result<()> {
+        CreateGift(ctx, amount)
     }
 }
+
+
+// lib.rs
