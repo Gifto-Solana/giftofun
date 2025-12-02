@@ -5,11 +5,18 @@ use anchor_lang::system_program::{transfer, Transfer};
 pub struct EnterEscrow<'info> {
     #[account(mut)]
     pub signer: Signer<'info>,
+    // this is the wallet that will deposits funds into the escrowpdaaccount.
 
-    #[account(init, space = 8, payer = signer, seeds = [b"escrow", signer.key().as_ref()], bump)]
+    
+    pub throwaway_signer: Signer<'info>,
+    // ok this throwaway_signer will be a signer made by the frontend. so like it will be in the link or something. we'll figure it out on the way.
+
+    #[account(init, space = 8, payer = signer, seeds = [throwaway_signer.key().as_ref(), signer.key().as_ref()], bump)]
     pub escrowpdaaccount: Account<'info, Empty>,
+    // this thing actually stores the gift funds
 
     pub system_program: Program<'info, System>,
+
 
 
 }
