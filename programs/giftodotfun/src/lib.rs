@@ -9,8 +9,12 @@ declare_id!("ALbkwBmpwk57s3t2S3DPC6H8WM1aQiKDUdH1DzVsR66S");
 pub mod giftodotfun {
     use super::*;
 
-    pub fn CreateGiftLink(ctx: Context<EnterEscrow>, amount: u64) -> Result<()> {
-        CreateGift(ctx, amount)
+    pub fn create_gift_link(ctx: Context<EnterEscrow>, amount: u64) -> Result<()> {
+        create_gift(ctx, amount)
+    }
+
+    pub fn redeem_gift_link(ctx: Context<LeaveEscrow>) -> Result<()> {
+        redeem_gift(ctx)
     }
 }
 
